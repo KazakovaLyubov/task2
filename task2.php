@@ -28,9 +28,13 @@
 		 if (isset($_GET['arg1']) && isset ($_GET['arg2']) && isset ($_GET['arg3'])) {
 			if (is_numeric($_GET['arg1'])&& is_numeric($_GET['arg2']) && is_numeric($_GET['arg3'])) {
 				if (($_GET['arg1'])>0 && ($_GET['arg2'])>0 && ($_GET['arg3'])>0) {
-					$L=(sqrt($_GET['arg1']*$_GET['arg2']*($_GET['arg1']+$_GET['arg2']+$_GET['arg3'])*($_GET['arg1']+$_GET['arg2']-$_GET['arg3'])))/($_GET['arg1']+$_GET['arg2']);
-					echo  "Результат: ". number_format ($L, 2, ',', ' ');
-				}
+					if((($_GET['arg1'])+($_GET['arg2']))>($_GET)){
+						$L=(sqrt($_GET['arg1']*$_GET['arg2']*($_GET['arg1']+$_GET['arg2']+$_GET['arg3'])*($_GET['arg1']+$_GET['arg2']-$_GET['arg3'])))/($_GET['arg1']+$_GET['arg2']);
+						echo  "Результат: ". number_format ($L, 2, ',', ' ');
+					}
+					else{
+						echo "Ошибка! Слишком большое значение длины стороны AC "
+					}
 				else {
 					echo "Ошибка! Введено отрицательное или нулевое значение";
 				}
@@ -40,26 +44,28 @@
 				echo "Ошибка! Введено не числовое значение";
 				echo "<br>";
 			}
+			}
 		 }
 		?>
+	
+		<style type="text/css">
+			.left-img{
+				margin-left:10px;			
+				
+			}
+			.middle-text{
+				margin-left:10px;			
+				float:left;
+			}
+			.right-img{
+				margin-left:10px;
+				float:left
+			}
+			.title{
+				color:midnightblue;
+				font-family: ARIAL BLACK;
+				font-weight: bold;
+				font-size:30px;
+			}
 	</body>
 </html>
- <style type="text/css">
-		.left-img{
-			margin-left:10px;			
-			
-		}
-		.middle-text{
-			margin-left:10px;			
-			float:left;
-		}
-		.right-img{
-			margin-left:10px;
-			float:left
-		}
-		.title{
-			color:midnightblue;
-			font-family: ARIAL BLACK;
-			font-weight: bold;
-			font-size:30px;
-		}
