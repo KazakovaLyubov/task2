@@ -28,11 +28,10 @@
 		 if (isset($_GET['arg1']) && isset ($_GET['arg2']) && isset ($_GET['arg3'])) {
 			if (is_numeric($_GET['arg1'])&& is_numeric($_GET['arg2']) && is_numeric($_GET['arg3'])) {
 				if (($_GET['arg1'])>0 && ($_GET['arg2'])>0 && ($_GET['arg3'])>0) {
-					if((($_GET['arg1'])+($_GET['arg2']))>($_GET)){
+					if((($_GET['arg1'])+($_GET['arg2']))>($_GET['arg3'])){
 						$L=(sqrt($_GET['arg1']*$_GET['arg2']*($_GET['arg1']+$_GET['arg2']+$_GET['arg3'])*($_GET['arg1']+$_GET['arg2']-$_GET['arg3'])))/($_GET['arg1']+$_GET['arg2']);
 						echo  "Результат: ". number_format ($L, 2, ',', ' ');
-					}
-				
+					}				
 					else{
 						echo "Ошибка! Слишком большое значение длины стороны AC ";
 						echo "<br>";
@@ -48,6 +47,7 @@
 				echo "<br>";
 			}			
 		}
+		
 		?>
 	
 		<style type="text/css">
